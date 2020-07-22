@@ -31,6 +31,7 @@ public class Main {
 		message.add("É\Å[É_Ç‚Ç≈") ;
 //#########################################	
 		
+		
 	boolean ok = true;
 	
 	while (ok) {
