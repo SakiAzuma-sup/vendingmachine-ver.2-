@@ -20,24 +20,29 @@ import java.util.List;
 		
 				switch(paymore) {
 				case 1 :
+					//ソーダ買う
 					System.out.println("------------------------------") ;
 					System.out.println("2 | ソーダ | ￥80") ;
 					System.out.println("------------------------------") ;
 					drink = cheap.chooseCheapItem(drink);
 					break ;
 				case 2 :
+					//お金追加する
 					cost = 100 ;
 					addm. addMoney(money, cost) ;
 					listp.listProduct (name, price) ;
 					drink = itemc.itemChoose () ;
 					break ;
 				case 9 :
+					//終了する
+					//システム終了
 					System.out.println("ありがとうございました。") ;
 					System.out.println("またのお越しをお待ちしております。") ;
 					System.exit(0);
 				}
 			}
 		
+			//最初から￥100超えてる
 			if (money >= 100) {
 				listp.listProduct (name, price) ;
 					drink = itemc.itemChoose () ;

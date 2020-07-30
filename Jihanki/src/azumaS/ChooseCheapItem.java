@@ -22,13 +22,17 @@ public class ChooseCheapItem {
 		}
 		switch(drink) {
 		case 2 :
+			//ソーダ
 			hatena = false ;
 			break ;
 		case 1 :
+			//コーラ
+			//お金足りひんから無理
 			System.out.println("※正しい数字を入力してください。") ;
 			hatena = true ;
 			break ;
 		default :
+			//1.2以外
 			System.out.println("※正しい数字を入力してください。") ;
 			hatena = true ;
 			break ;

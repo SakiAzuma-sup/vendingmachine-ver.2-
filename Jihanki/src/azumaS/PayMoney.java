@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class PayMoney {
 	
+	//“ü‹à#################################################################################
+	//####################################################################################
 	public int payMoney(int cost) {
 		int money = 0 ;
 		Scanner scanner = new Scanner(System.in) ;

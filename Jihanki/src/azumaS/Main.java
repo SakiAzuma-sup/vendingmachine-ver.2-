@@ -61,6 +61,8 @@ public class Main {
 						
 						switch(operation) {
 						case 9 :
+							//終了する
+							//システム終了
 							System.out.println("ありがとうございました。") ;
 							System.out.println("またのお越しをお待ちしております。") ;
 							ok = false ;
@@ -68,6 +70,7 @@ public class Main {
 							break ;
 						
 						case 1 :
+							//商品選択へ
 							list.listProduct (name, price) ;
 							this. drink = qdrink.itemChoose () ;
 							cost = price.get(drink-1) ;
@@ -76,6 +79,7 @@ public class Main {
 							break ;
 							
 						case 2 :
+							//入金へ
 							System.out.println("") ;
 							System.out.println("現在、販売中の商品はこちらです。") ;
 							System.out.println("") ;
@@ -87,8 +91,9 @@ public class Main {
 							this. drink = odrink.moneyCheck(drink, money, name, price);
 							this. last = rlast.lastChoose(drink, last, message) ;	
 							break ;
-									
+						
 						default :
+							//1.2.9以外
 							System.out.println("※正しい数字を入力してください。") ;
 							break ;
 						}

@@ -22,11 +22,15 @@ public class ItemChoose {
 			}
 			switch(drink) {
 				case 1 :
+					//コーラ
 					check = false ;
 					break ;
+					
 				case 2 :
+					//ソーダ
 					check = false ;
 					break;
+					
 				default :
 					System.out.println("※正しい数字を入力してください。") ;
 					check = true ;
