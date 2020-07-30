@@ -2,11 +2,14 @@ package azumaS;
 
 import java.util.Scanner;
 
-public class AddMoney extends ChooseCheap {
+public class AddMoney {
 
-	public static void addMoney(int money, int cost) {
+	public void addMoney(int money, int cost) {
+		
+		//先に入金#######################################################################
+		//最低金額は超えてるけど、追加したいとき##################################################
 			Scanner scanner = new Scanner(System.in) ;
-			//drinkの数字を使って、その値段になるまでループしたい。
+
 					while(money < cost) {
 						System.out.println("") ;
 						System.out.println("お金を投入してください。") ;
@@ -15,11 +18,5 @@ public class AddMoney extends ChooseCheap {
 						System.out.print("投入金額：") ;
 						money = money+scanner.nextInt() ;
 					}
-		}
-	//###############################################################################
-
-	public AddMoney() {
-		super();
 	}
-
 }

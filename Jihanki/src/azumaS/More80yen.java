@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class More80yen extends LastChoose {
-
-	public static int more80yen() {
+public class More80yen {
+	
+		public int more80yen() {
+			
+			//先に入金#############################################################################
+			//最低賃金を超えたときの選択###############################################################
 			int paymore = 0 ;
 			System.out.println("※購入可能な商品：ソーダ (￥80) ") ;
 			System.out.println("") ; 
@@ -29,10 +32,5 @@ public class More80yen extends LastChoose {
 				
 			return paymore ;
 		}
-	//##################################################################################
-
-	public More80yen() {
-		super();
-	}
 
 }
