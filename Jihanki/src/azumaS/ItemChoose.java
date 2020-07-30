@@ -31,11 +31,6 @@ public class ItemChoose {
 					check = false ;
 					break ;
 					
-				case 3 :
-					//‚¨’ƒ
-					check = false ;
-					break ;
-					
 				default :
 					System.out.println("¦³‚µ‚¢”š‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B") ;
 					check = true ;

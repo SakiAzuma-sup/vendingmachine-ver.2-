@@ -31,6 +31,12 @@ public class ChooseCheapItem {
 			System.out.println("※正しい数字を入力してください。") ;
 			hatena = true ;
 			break ;
+		case 3 :
+			//お茶
+			//お金足りひんから無理
+			System.out.println("※正しい数字を入力してください。") ;
+			hatena = true ;
+			break ;
 		default :
 			//1.2以外
 			System.out.println("※正しい数字を入力してください。") ;
