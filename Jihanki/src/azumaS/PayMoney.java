@@ -6,9 +6,11 @@ public class PayMoney {
 	
 	//“ü‹à#################################################################################
 	//####################################################################################
-	public int payMoney(int cost) {
+	public int payMoney(int cost, int zankin) {
 		int money = 0 ;
 		Scanner scanner = new Scanner(System.in) ;
+		
+		money = zankin ;
 		
 		while(money < cost) {
 			System.out.println("") ;

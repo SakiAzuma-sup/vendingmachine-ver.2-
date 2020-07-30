@@ -24,6 +24,8 @@ public class Main {
 	int money = 0 ;
 	int last = 0 ;
 	int cost ;
+	int nokori ;
+	int zankin = 0 ;
 	
 	
 	
@@ -43,17 +45,20 @@ public class Main {
 			List<String> name = new ArrayList<>() ;
 				name.add("コーラ") ;
 				name.add("ソーダ") ;
-				name.add("お茶") ;
 				
 			List<Integer> price = new ArrayList<>() ;
 				price.add(100) ;
 				price.add(80) ;
-				price.add(120) ;
 			
 			List<String> message = new ArrayList<>() ;
 				message.add("コーラやで") ;
 				message.add("ソーダやで") ;
-				message.add("お茶やねん") ;
+				
+			List<Integer> zaiko = new ArrayList<>() ;
+				zaiko.add(1) ;
+				zaiko.add(1) ;
+				zaiko.add(1) ;
+				
 		//#########################################	
 				
 				
@@ -81,9 +86,11 @@ public class Main {
 							
 							cost = price.get(drink-1) ;
 								//入金
-							this. money = pmoney.payMoney (cost) ;	
+							this. money = pmoney.payMoney (cost, zankin) ;	
+								//残金
+							this. zankin = money - cost ;
 								//最後の選択
-							this. last = rlast.lastChoose(drink, last, message) ;
+							this. last = rlast.lastChoose(drink, last, message, zankin) ;
 							break ;
 							
 						case 2 :
@@ -96,13 +103,26 @@ public class Main {
 								//
 							cost = 80 ;
 								//入金
-							this. money = pmoney.payMoney (cost) ;
+							this. money = pmoney.payMoney (cost, zankin) ;
 								//入金金額チェック
-							this. drink = odrink.moneyCheck(drink, money, name, price);
+							this. drink = odrink.moneyCheck(drink, money, name, price, zankin) ;
+								//残金
+							this.zankin = money - price.get(drink-1) ;
 								//最後の選択
-							this. last = rlast.lastChoose(drink, last, message) ;	
+							this. last = rlast.lastChoose(drink, last, message, zankin) ;	
 							break ;
 						
+						case 3 :
+							//在庫管理
+							System.out.println("") ;
+							System.out.println("補充する商品を入力してください。") ;
+							System.out.println("") ;
+							list.listProduct (name, price) ;
+							this. drink = qdrink.itemChoose () ;
+
+							
+							break ;
+							
 						default :
 							//1.2.9以外
 							System.out.println("※正しい数字を入力してください。") ;

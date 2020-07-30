@@ -15,6 +15,7 @@ public class First {
 			System.out.println("------------------------------") ;
 			System.out.println("1 | 商品を選ぶ") ;
 			System.out.println("2 | お金を投入する") ;
+			System.out.println("3 | 商品を補充する") ;
 			System.out.println("9 | 終了する") ;
 			System.out.println("------------------------------") ;
 			System.out.print("操作番号：") ;

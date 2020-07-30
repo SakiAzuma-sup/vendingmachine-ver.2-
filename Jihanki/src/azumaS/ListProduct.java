@@ -10,7 +10,7 @@ import java.util.List;
 			//è§ïiï\é¶
 			System.out.println("------------------------------") ;
 			for (int i=0; i<name.size(); ++i) {
-				System.out.println((i+1)+" | "+name.get(i)+" | "+price.get(i)) ;
+				System.out.println((i+1)+" | ÅZ | "+name.get(i)+" | Åè"+price.get(i)) ;
 			}
 			System.out.println("------------------------------") ;
 		}
