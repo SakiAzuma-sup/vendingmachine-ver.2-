@@ -49,6 +49,7 @@ public class LastChoose {
 				System.out.println("‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B") ;
 				System.out.println("‚Ü‚½‚Ì‚¨‰z‚µ‚ğ‚¨‘Ò‚¿‚µ‚Ä‚¨‚è‚Ü‚·B") ;
 				okey = false ;
+				System.exit(0);
 				break ;
 
 			case 1 :
