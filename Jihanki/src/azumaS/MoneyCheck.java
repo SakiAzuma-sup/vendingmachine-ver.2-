@@ -24,13 +24,17 @@ import java.util.List;
 					System.out.println("------------------------------") ;
 					System.out.println("2 | ソーダ | ￥80") ;
 					System.out.println("------------------------------") ;
+						//ソーダ買う
 					drink = cheap.chooseCheapItem(drink);
 					break ;
 				case 2 :
 					//お金追加する
 					cost = 100 ;
+						//お金を追加する
 					addm. addMoney(money, cost) ;
+						//リスト表示
 					listp.listProduct (name, price) ;
+						//商品選択
 					drink = itemc.itemChoose () ;
 					break ;
 				case 9 :
@@ -44,7 +48,9 @@ import java.util.List;
 		
 			//最初から￥100超えてる
 			if (money >= 100) {
+				//リスト表示
 				listp.listProduct (name, price) ;
+					//商品選択
 					drink = itemc.itemChoose () ;
 			}
 			return drink;

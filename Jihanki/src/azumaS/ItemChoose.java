@@ -29,7 +29,12 @@ public class ItemChoose {
 				case 2 :
 					//ソーダ
 					check = false ;
-					break;
+					break ;
+					
+				case 3 :
+					//お茶
+					check = false ;
+					break ;
 					
 				default :
 					System.out.println("※正しい数字を入力してください。") ;

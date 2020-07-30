@@ -43,14 +43,17 @@ public class Main {
 			List<String> name = new ArrayList<>() ;
 				name.add("コーラ") ;
 				name.add("ソーダ") ;
+				name.add("お茶") ;
 				
 			List<Integer> price = new ArrayList<>() ;
 				price.add(100) ;
 				price.add(80) ;
+				price.add(120) ;
 			
 			List<String> message = new ArrayList<>() ;
 				message.add("コーラやで") ;
 				message.add("ソーダやで") ;
+				message.add("お茶やねん") ;
 		//#########################################	
 				
 				
@@ -71,10 +74,15 @@ public class Main {
 						
 						case 1 :
 							//商品選択へ
+								//リスト表示
 							list.listProduct (name, price) ;
+								//商品選択
 							this. drink = qdrink.itemChoose () ;
+							
 							cost = price.get(drink-1) ;
-							this. money = pmoney.payMoney (cost) ;				
+								//入金
+							this. money = pmoney.payMoney (cost) ;	
+								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message) ;
 							break ;
 							
@@ -83,12 +91,15 @@ public class Main {
 							System.out.println("") ;
 							System.out.println("現在、販売中の商品はこちらです。") ;
 							System.out.println("") ;
+								//リスト表示
 							list.listProduct (name, price) ;
-							//
+								//
 							cost = 80 ;
-							//
+								//入金
 							this. money = pmoney.payMoney (cost) ;
+								//入金金額チェック
 							this. drink = odrink.moneyCheck(drink, money, name, price);
+								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message) ;	
 							break ;
 						
