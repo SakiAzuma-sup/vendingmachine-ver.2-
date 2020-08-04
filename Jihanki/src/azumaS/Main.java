@@ -82,7 +82,8 @@ public class Main {
 							ok = false ;
 							System.exit(0);
 							break ;
-						
+							
+//#################################################################################						
 						case 1 :
 							//商品選択へ
 								//リスト表示
@@ -91,33 +92,9 @@ public class Main {
 							this. drink = qdrink.itemChoose () ;	
 							cost = price.get(drink-1) ;
 								
-//#################################################################################
-							switch(drink) {
-							case 1 : //コーラ
-								if (zaiko.get(0)==0) {
-									System.out.println("売り切れです。") ;
-									botan.set(0,  "×") ;
-								} else {
-									zaikoHerasu(drink, zaiko, botan) ;
-								}
-								break ;
-							case 2 : //ソーダ
-								if (zaiko.get(1)==0) {
-									System.out.println("売り切れです。") ;
-									botan.set(1,  "×") ;
-								} else {
-									zaikoHerasu(drink, zaiko, botan) ;
-								}
-								break ;
-							}
-						//	zaikoUmu(drink, name, price, zaiko, botan);
-							
-							
-							
-						
-		
-			
-//#################################################################################
+								//在庫管理
+							zaikoCheck(zaiko, botan);
+
 							//入金
 							this. money = pmoney.payMoney (cost, zankin) ;	
 							
@@ -126,7 +103,8 @@ public class Main {
 								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message, zankin) ;
 							break ;
-							
+
+//#################################################################################
 						case 2 :
 							//入金へ
 							System.out.println("") ;
@@ -140,27 +118,22 @@ public class Main {
 							this. money = pmoney.payMoney (cost, zankin) ;
 								//入金金額チェック
 							this. drink = odrink.moneyCheck(drink, money, name, price, botan, zankin) ;
-//#################################################################################
+								//在庫管理
+							zaikoCheck(zaiko, botan);
 							
-							if (zaiko.get(drink-1)!=0) {
-								zaikoHerasu(drink, zaiko, botan);
-							}
-							
-							zaikoUmu(drink, name, price, zaiko, botan);
-							
-
-//#################################################################################
 								//残金
 							this.zankin = money - price.get(drink-1) ;
 								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message, zankin) ;	
 							break ;
 						
+//#################################################################################
 						case 3 :
 							//在庫を増やす
 							zaikoHuyasu(name, price, zaiko, botan);	
 							break ;
 							
+//#################################################################################
 						default :
 							//1.2.9以外
 							System.out.println("※正しい数字を入力してください。") ;
@@ -171,52 +144,45 @@ public class Main {
 
 
 
-
-	private void zaikoUmu(int drink, List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
-		while(zaiko.get(drink-1)==0) {
-			if (zaiko.get(0)==0&&zaiko.get(1)==0) {
-				System.out.println("商品は完売いたしました。") ;
-				System.out.println("商品を補充しますか?") ;
-				System.out.println("1 | 商品を補充する") ;
-				System.out.println("9 | 終了する") ;
-				System.out.print("商品番号：") ;
-				BufferedReader tmp20 = new BufferedReader(new InputStreamReader(System.in)) ;
-				try {
-					String tmp200 = tmp20.readLine() ;
-					this.sousa = Integer.valueOf(tmp200) ;
-				} catch(IOException e) {
-					e.printStackTrace() ;
-				}
-				switch (sousa) {
-				case 1 : 
-					//在庫を増やす
-					drink = zaikoHuyasu(name, price, zaiko, botan) ;
-					botan.set(drink-1,  "〇") ;
-					break ;
-				case 9 :
-					//終了する
-					//システム終了
-					System.out.println("ありがとうございました。") ;
-					System.out.println("またのお越しをお待ちしております。") ;
-					System.exit(0);
-					break ;
-				}
+/*
+	//在庫管理
+*/
+	private void zaikoCheck(List<Integer> zaiko, List<String> botan) {
+		//在庫チェック
+		switch(drink) {
+		case 1 : //コーラ
+			//コーラの在庫がないとき
+			//売り切れ表示
+			if (zaiko.get(0)==0) {
+				System.out.println("売り切れです。") ;
+				botan.set(0,  "×") ;
+			//コーラの在庫があるとき
+			//在庫を1増やす
 			} else {
-			System.out.println("在庫がありません。") ;
-			botan.set(drink-1,  "×") ;
-			list.listProduct (name, price, botan) ;
-			this. drink = qdrink.itemChoose () ;	
-		}
+				zaikoHerasu(drink, zaiko, botan) ;
+			}
+			break ;
+		case 2 : //ソーダ
+			//ソーダの在庫がないとき
+			//売り切れ表示
+			if (zaiko.get(1)==0) {
+				System.out.println("売り切れです。") ;
+				botan.set(1,  "×") ;
+			//ソーダの在庫あるとき
+			//在庫を1減らす
+			} else {
+				zaikoHerasu(drink, zaiko, botan) ;
+			}
+			break ;
 		}
 	}
 
 
 
-
+//在庫を減らす
 	private void zaikoHerasu(int drink, List<Integer> zaiko, List<String> botan) {
 		//在庫を減らす
 		zaiko.set(drink-1, zaiko.get(drink-1)-1) ;	
-		System.out.println("在庫数："+zaiko.get(drink-1)) ;
 			if (zaiko.get(drink-1) == 0) {
 				botan.set(drink-1,  "×") ;
 			}
@@ -224,8 +190,8 @@ public class Main {
 
 
 
-
-	private int zaikoHuyasu(List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
+//在庫を増やす
+	public int zaikoHuyasu(List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
 		//在庫管理
 		System.out.println("") ;
 		System.out.println("補充する商品を入力してください。") ;
@@ -238,17 +204,9 @@ public class Main {
 		return drink ;
 	}
 	
-	//private void zaikoGen ( List<Integer>zaiko) {
-		// TODO 自動生成されたメソッド・スタブ
-		
-		//zaiko.set(drink-1, 2);	
-	//}
-
-	
 	
 }
 
-//##############################################################################
 
 
 

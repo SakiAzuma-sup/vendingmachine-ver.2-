@@ -21,7 +21,6 @@ public class LastChoose {
 			System.out.println("------------------------------") ;
 			System.out.println("1 | 商品の詳細を表示") ;
 			System.out.println("2 | 買い物を続ける") ;
-			System.out.println("3 | 商品を補充する") ;
 			System.out.println("9 | 終了する");
 			System.out.println("------------------------------") ;
 			System.out.print("操作番号：") ;
