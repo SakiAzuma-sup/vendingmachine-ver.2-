@@ -163,6 +163,7 @@ public class Main {
 	private void zaikoHojuu(List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
 		//Š®”„‚µ‚Ä‚½‚ç
 		if (zaiko.get(0)==0&&zaiko.get(1)==0) {
+			System.out.println("") ;
 			System.out.println("Š®”„‚µ‚Ü‚µ‚½B") ;
 			System.out.println("¤•i‚ğ•â[‚µ‚Ü‚·‚©?") ;
 			System.out.println("1 | ¤•i‚ğ•â[‚·‚é") ;
