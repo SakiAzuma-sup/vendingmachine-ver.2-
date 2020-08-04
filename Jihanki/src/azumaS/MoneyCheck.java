@@ -36,6 +36,7 @@ import java.util.List;
 						//お金を追加する
 					addm. addMoney(money, cost) ;
 						//リスト表示
+					botan.set(0,  "〇") ;
 					listp.listProduct (name, price, botan) ;
 						//商品選択
 					drink = itemc.itemChoose () ;
@@ -56,6 +57,7 @@ import java.util.List;
 				System.out.println("現在の入金額：￥"+money) ;
 				System.out.println("商品を選択してください。") ;
 				System.out.println("") ;
+				botan.set(0,  "〇") ;
 				listp.listProduct (name, price, botan) ;
 					//商品選択
 					drink = itemc.itemChoose () ;

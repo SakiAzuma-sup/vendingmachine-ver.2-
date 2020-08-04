@@ -87,6 +87,12 @@ public class Main {
 						case 1 :
 							//商品選択へ
 								//リスト表示
+							if (zaiko.get(0)!=0) {
+								botan.set(0,  "〇") ;
+							}
+							if (zaiko.get(1)!=0) {
+								botan.set(1,  "〇") ;
+							}
 							list.listProduct (name, price, botan) ;
 							
 								//商品選択
@@ -117,6 +123,12 @@ public class Main {
 							System.out.println("") ;
 							
 								//リスト表示
+							if (zaiko.get(0)!=0) {
+								botan.set(0,  "〇") ;
+							}
+							if (zaiko.get(1)!=0) {
+								botan.set(1,  "〇") ;
+							}
 							list.listProduct (name, price, botan) ;
 							
 								//
