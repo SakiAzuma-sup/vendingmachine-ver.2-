@@ -12,7 +12,7 @@ import java.util.List;
 		
 		//先に入金############################################################################
 		//最低価格を超えたときの、次の操作選択########################################################
-		public int moneyCheck(int drink, int money, List<String> name, List<Integer> price, int zankin) {
+		public int moneyCheck(int drink, int money, List<String> name, List<Integer> price, List<String> botan, int zankin) {
 			int paymore;
 			int cost;
 			if (money < 100) {
@@ -34,7 +34,7 @@ import java.util.List;
 						//お金を追加する
 					addm. addMoney(money, cost) ;
 						//リスト表示
-					listp.listProduct (name, price) ;
+					listp.listProduct (name, price, botan) ;
 						//商品選択
 					drink = itemc.itemChoose () ;
 					break ;
@@ -51,10 +51,10 @@ import java.util.List;
 			if (money >= 100) {
 				//リスト表示
 				System.out.println("") ;
-				System.out.println("現在の入金額：￥"+zankin) ;
+				System.out.println("現在の入金額：￥"+money) ;
 				System.out.println("商品を選択してください。") ;
 				System.out.println("") ;
-				listp.listProduct (name, price) ;
+				listp.listProduct (name, price, botan) ;
 					//商品選択
 					drink = itemc.itemChoose () ;
 			}
