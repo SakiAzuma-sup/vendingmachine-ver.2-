@@ -66,7 +66,7 @@ public class Main {
 				botan.add("〇") ;
 				
 		//#########################################	
-			int zaikoAll = zaiko.get(0)+zaiko.get(1) ;
+
 				
 			boolean ok = true ;
 			
@@ -88,18 +88,23 @@ public class Main {
 							//商品選択へ
 								//リスト表示
 							list.listProduct (name, price, botan) ;
+							
 								//商品選択
 							this. drink = qdrink.itemChoose () ;	
 							cost = price.get(drink-1) ;
-								
+							
+							//在庫チェック
+							zaikoHojuu(name, price, zaiko, botan);
+							
 								//在庫管理
 							zaikoCheck(zaiko, botan);
-
+							
 							//入金
 							this. money = pmoney.payMoney (cost, zankin) ;	
 							
 								//残金
 							this. zankin = money - cost ;
+							
 								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message, zankin) ;
 							break ;
@@ -110,19 +115,28 @@ public class Main {
 							System.out.println("") ;
 							System.out.println("現在、販売中の商品はこちらです。") ;
 							System.out.println("") ;
+							
 								//リスト表示
 							list.listProduct (name, price, botan) ;
+							
 								//
 							cost = 80 ;
+							
 								//入金
 							this. money = pmoney.payMoney (cost, zankin) ;
+							
 								//入金金額チェック
 							this. drink = odrink.moneyCheck(drink, money, name, price, botan, zankin) ;
+							
+								//在庫チェック
+							zaikoHojuu(name, price, zaiko, botan);
+							
 								//在庫管理
 							zaikoCheck(zaiko, botan);
 							
 								//残金
 							this.zankin = money - price.get(drink-1) ;
+							
 								//最後の選択
 							this. last = rlast.lastChoose(drink, last, message, zankin) ;	
 							break ;
@@ -140,6 +154,41 @@ public class Main {
 							break ;
 						}
 			}
+	}
+
+
+/*
+//在庫チェック
+ */
+	private void zaikoHojuu(List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
+		//完売してたら
+		if (zaiko.get(0)==0&&zaiko.get(1)==0) {
+			System.out.println("完売しました。") ;
+			System.out.println("商品を補充しますか?") ;
+			System.out.println("1 | 商品を補充する") ;
+			System.out.println("9 | 終了する") ;
+			System.out.print("商品番号：") ;
+			BufferedReader tmp20 = new BufferedReader(new InputStreamReader(System.in)) ;
+			try {
+				String tmp200 = tmp20.readLine() ;
+				sousa = Integer.valueOf(tmp200) ;
+			} catch(IOException e) {
+				e.printStackTrace() ;
+			}
+			switch (sousa) {
+			case 1 : 
+				//在庫を増やす
+				drink = zaikoHuyasu(name, price, zaiko, botan) ;
+				break ;
+			case 9 :
+				//終了する
+				//システム終了
+				System.out.println("ありがとうございました。") ;
+				System.out.println("またのお越しをお待ちしております。") ;
+				System.exit(0);
+				break ;
+			}
+		}
 	}
 
 
@@ -178,8 +227,9 @@ public class Main {
 	}
 
 
-
+/*
 //在庫を減らす
+*/
 	private void zaikoHerasu(int drink, List<Integer> zaiko, List<String> botan) {
 		//在庫を減らす
 		zaiko.set(drink-1, zaiko.get(drink-1)-1) ;	
@@ -189,8 +239,9 @@ public class Main {
 	}
 
 
-
+/*
 //在庫を増やす
+ */
 	public int zaikoHuyasu(List<String> name, List<Integer> price, List<Integer> zaiko, List<String> botan) {
 		//在庫管理
 		System.out.println("") ;
@@ -201,6 +252,11 @@ public class Main {
 		zaiko.set(drink-1, zaiko.get(drink-1)+1) ;	
 		botan.set(drink-1,  "〇") ;
 		System.out.println("現在の"+name.get(drink-1)+"の"+"在庫は："+zaiko.get(drink-1)+"本です。") ;
+		System.out.println("------------------------------") ;
+		for (int i=0; i<name.size(); ++i) {
+			System.out.println((i+1)+" | "+botan.get(i)+" | "+name.get(i)+" | ￥"+price.get(i)) ;
+		}
+		System.out.println("------------------------------") ;
 		return drink ;
 	}
 	

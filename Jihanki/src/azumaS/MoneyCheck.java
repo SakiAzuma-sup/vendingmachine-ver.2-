@@ -21,9 +21,11 @@ import java.util.List;
 				switch(paymore) {
 				case 1 :
 					//ソーダ買う
+					botan.set(0, "×") ;
 					System.out.println("------------------------------") ;
-					System.out.println("1 | × | コーラ | ￥100") ;
-					System.out.println("2 | 〇 | ソーダ | ￥80") ;
+					for (int i=0; i<name.size(); ++i) {
+						System.out.println((i+1)+" | "+botan.get(i)+" | "+name.get(i)+" | ￥"+price.get(i)) ;
+					}
 					System.out.println("------------------------------") ;
 						//ソーダ買う
 					drink = cheap.chooseCheapItem(drink);
