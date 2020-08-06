@@ -113,6 +113,9 @@ public class Main {
 								//在庫減らす
 							zaikoHerasu(drink, zaiko, botan) ;
 							
+							//購入完了
+							System.out.println("購入が完了しました。") ;
+							
 								//残金
 							this. zankin = money - cost ;
 							
@@ -145,6 +148,7 @@ public class Main {
 								//入金金額チェック
 							this. drink = odrink.moneyCheck(drink, money, name, price, zaiko, botan, zankin) ;
 							
+							
 								//在庫管理
 							zaikoCheck(name, price, zaiko, botan);
 							
@@ -153,6 +157,9 @@ public class Main {
 							
 								//在庫減らす
 							zaikoHerasu(drink, zaiko, botan) ;
+							
+							//購入完了
+							System.out.println("購入が完了しました。") ;
 							
 								//残金
 							this.zankin = money - price.get(drink-1) ;
@@ -184,7 +191,6 @@ public class Main {
 		//完売してたら
 		int hojuusitai = drink ;
 		while(zaiko.get(hojuusitai-1)==0) {
-			//if (zaiko.get(hojuusitai-1)==0) {
 			System.out.println("") ;
 			System.out.println("商品を補充しますか?") ;
 			System.out.println("1 | 商品を補充する") ;
@@ -230,11 +236,6 @@ public class Main {
 				System.out.println("売り切れです。") ;
 				botan.set(0,  "×") ;
 				zaikoHojuu(name, price, zaiko, botan);
-				
-			//コーラの在庫があるとき
-			//在庫を1減らす
-		//	} else {
-		//		zaikoHerasu(drink, zaiko, botan) ;
 			}
 			break ;
 		case 2 : //ソーダ
@@ -244,10 +245,6 @@ public class Main {
 				System.out.println("売り切れです。") ;
 				botan.set(1,  "×") ;
 				zaikoHojuu(name, price, zaiko, botan);
-			//ソーダの在庫あるとき
-			//在庫を1減らす
-		//	} else {
-		//		zaikoHerasu(drink, zaiko, botan) ;
 			}
 			break ;
 		}
@@ -278,11 +275,12 @@ public class Main {
 		this. drink = qdrink.itemChoose () ;
 		zaiko.set(drink-1, zaiko.get(drink-1)+1) ;	
 		botan.set(drink-1,  "〇") ;
-		System.out.println("------------------------------") ;
-		for (int i=0; i<name.size(); ++i) {
-			System.out.println((i+1)+" | "+botan.get(i)+" | "+name.get(i)+" | ￥"+price.get(i)+ " | 在庫数："+zaiko.get(i)) ;
-		}
-		System.out.println("------------------------------") ;
+		System.out.println(name.get(drink-1)+"を補充しました。") ;
+		//System.out.println("------------------------------") ;
+		//for (int i=0; i<name.size(); ++i) {
+		//	System.out.println((i+1)+" | "+botan.get(i)+" | "+name.get(i)+" | ￥"+price.get(i)+ " | 在庫数："+zaiko.get(i)) ;
+		//}
+		//System.out.println("------------------------------") ;
 		return drink ;
 	}
 	
