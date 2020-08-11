@@ -79,6 +79,9 @@ public class Main {
 						case 9 :
 							//終了する
 							//システム終了
+							if(zankin > 0) {
+							System.out.println("お釣り：￥"+zankin) ;
+							}
 							System.out.println("ありがとうございました。") ;
 							System.out.println("またのご利用をお待ちしております。") ;
 							ok = false ;
